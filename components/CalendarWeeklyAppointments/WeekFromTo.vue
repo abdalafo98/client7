@@ -47,5 +47,6 @@ export default {
   font-size: 12px;
   font-weight: 100;
   margin: auto;
+  width: 200px;
 }
 </style>

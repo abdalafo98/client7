@@ -27,7 +27,7 @@
             />
             <Numbercard
               v-else-if="item.filter[index3].appointments.length > 1"
-              :number="item.filter[index3].appointments[0].length"
+              :number="item.filter[index3].appointments.length"
               @change-id="changeId(item.filter[index3].id)"
             />
           </div>
