@@ -22,7 +22,8 @@
 export default {
   methods: {
     increaseDate() {
-      this.$emit("increase-date");
+      this.$emit("decrease-date");
+
     },
   },
 };

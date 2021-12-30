@@ -91,6 +91,8 @@ export default {
       this.$store.dispatch("changedailyUserName", {
         dailyUserName: name,
       });
+
+      // this.$store.dispatch("getWeeklyAppointmentById");
     },
   },
 

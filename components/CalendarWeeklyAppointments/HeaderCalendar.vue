@@ -1,18 +1,19 @@
 <template>
   <div>
     <div class="son" v-if="getLanguage === 'ar'">
-      <ArrowHeaderLeft @decrease-date="decreaseDate" />
+      <ArrowHeaderLeft @increase-date="increaseDate" />
       <WeekFromTo />
       <h2 class="week-from-to">
-        <ArrowHeaderRight @increase-date="increaseDate" />
+        <ArrowHeaderRight @decrease-date="decreaseDate" />
       </h2>
     </div>
     <div v-else class="son">
-      <ArrowHeaderRight @increase-date="increaseDate" />
+      <ArrowHeaderRight @decrease-date="decreaseDate" />
+
       <h2 class="week-from-to">
         <WeekFromTo />
       </h2>
-      <ArrowHeaderLeft @decrease-date="decreaseDate" />
+      <ArrowHeaderLeft @increase-date="increaseDate" />
     </div>
   </div>
 </template>
@@ -37,8 +38,13 @@ export default {
         num: -7,
         status: "change_startDate",
       });
-      this.$store.dispatch("getAppoinments");
-      // this.$store.dispatch("getFilters");
+      if (this.$route.name === "weeklyappointments") {
+        this.$store.dispatch("getAppoinments");
+        this.$store.dispatch("getFilters");
+      } else if (this.$route.name === "weeklyCalendarById") {
+        this.$store.dispatch("getWeeklyAppointmentById");
+        this.$store.dispatch("getFilters");
+      }
     },
     increaseDate() {
       this.$store.dispatch("addDays", {
@@ -46,8 +52,13 @@ export default {
         num: 7,
         status: "change_startDate",
       });
-      this.$store.dispatch("getAppoinments");
-      // this.$store.dispatch("getFilters");
+      if (this.$route.name === "weeklyappointments") {
+        this.$store.dispatch("getAppoinments");
+        this.$store.dispatch("getFilters");
+      } else if (this.$route.name === "weeklyCalendarById") {
+        this.$store.dispatch("getWeeklyAppointmentById");
+        this.$store.dispatch("getFilters");
+      }
     },
   },
 };

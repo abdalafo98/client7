@@ -1,18 +1,20 @@
 <template>
   <div>
     <div class="son" v-if="getLanguage === 'ar'">
-      <ArrowHeaderLeft @decrease-date="decreaseDate" />
+      <ArrowHeaderLeft @increase-date="increaseDate" />
+
       <h2 class="week-from-to">
         <DailyDate />
       </h2>
-      <ArrowHeaderRight @increase-date="increaseDate" />
+      <ArrowHeaderRight @decrease-date="decreaseDate" />
     </div>
     <div v-else class="son">
-      <ArrowHeaderRight @increase-date="increaseDate" />
+      <ArrowHeaderRight @decrease-date="decreaseDate" />
+
       <h2 class="week-from-to">
         <DailyDate />
       </h2>
-      <ArrowHeaderLeft @decrease-date="decreaseDate" />
+      <ArrowHeaderLeft @increase-date="increaseDate" />
     </div>
   </div>
 </template>
